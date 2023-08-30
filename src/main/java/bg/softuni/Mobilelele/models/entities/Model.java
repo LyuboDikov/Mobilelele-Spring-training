@@ -25,6 +25,7 @@ public class Model extends BaseEntity {
     private String imageUrl;
     @Column(nullable = false)
     private Integer startYear;
+    @Column
     private Integer endYear;
     @ManyToOne
     private Brand brand;

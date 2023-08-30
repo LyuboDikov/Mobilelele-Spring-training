@@ -22,9 +22,13 @@ public class User extends BaseEntity {
     private String email;
     @Column
     private String password;
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private boolean isActive;
+    @Column
     private String imageUrl;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<UserRole> userRoles = new ArrayList<>();
