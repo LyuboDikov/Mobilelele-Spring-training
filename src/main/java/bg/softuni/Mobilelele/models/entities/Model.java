@@ -29,6 +29,9 @@ public class Model extends BaseEntity {
     @ManyToOne
     private Brand brand;
 
+    public Model() {
+    }
+
     public String getName() {
         return name;
     }
