@@ -1,8 +1,10 @@
 package bg.softuni.Mobilelele.models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,5 +15,11 @@ import lombok.*;
 public class Brand extends BaseEntity {
 
     private String name;
+    @OneToMany(
+            mappedBy = "brand",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL
+    )
+    private List<Model> models = new ArrayList<>();
 
 }

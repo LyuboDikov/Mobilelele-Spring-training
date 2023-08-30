@@ -1,10 +1,7 @@
 package bg.softuni.Mobilelele.models.entities;
 
 import bg.softuni.Mobilelele.models.enums.Category;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
@@ -30,5 +27,7 @@ public class Model extends BaseEntity {
     private String imageUrl;
     private Integer startYear;
     private Integer endYear;
+    @ManyToOne
+    private Brand brand;
 
 }
