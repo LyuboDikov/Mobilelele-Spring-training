@@ -1,19 +1,15 @@
 package bg.softuni.Mobilelele.models.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@Entity
+
 @Table(name = "brands")
 public class Brand extends BaseEntity {
 
+    @Column(nullable = false)
     private String name;
     @OneToMany(
             mappedBy = "brand",
@@ -22,4 +18,27 @@ public class Brand extends BaseEntity {
     )
     private List<Model> models = new ArrayList<>();
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Model> getModels() {
+        return models;
+    }
+
+    public void setModels(List<Model> models) {
+        this.models = models;
+    }
+
+    @Override
+    public String toString() {
+        return "Brand{" +
+                "name='" + name + '\'' +
+                ", models=" + models +
+                '}';
+    }
 }
