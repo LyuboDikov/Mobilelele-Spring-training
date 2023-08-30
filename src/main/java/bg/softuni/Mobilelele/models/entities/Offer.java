@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 @Table(name = "offers")
 public class Offer extends BaseEntity {
 
+    @Column(columnDefinition = "TEXT")
+    private String description;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Engine engine;
@@ -91,5 +93,28 @@ public class Offer extends BaseEntity {
 
     public void setSeller(User seller) {
         this.seller = seller;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "description='" + description + '\'' +
+                ", engine=" + engine +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", mileage=" + mileage +
+                ", price=" + price +
+                ", transmission=" + transmission +
+                ", year=" + year +
+                ", model=" + model +
+                ", seller=" + seller +
+                '}';
     }
 }
