@@ -7,6 +7,7 @@ import java.util.List;
 
 
 @Table(name = "brands")
+@Entity
 public class Brand extends BaseEntity {
 
     @Column(nullable = false)

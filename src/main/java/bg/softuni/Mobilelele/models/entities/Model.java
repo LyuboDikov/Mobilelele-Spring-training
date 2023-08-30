@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 
 @Table(name = "models")
+@Entity
 public class Model extends BaseEntity {
 
     //•	name – a model name.
