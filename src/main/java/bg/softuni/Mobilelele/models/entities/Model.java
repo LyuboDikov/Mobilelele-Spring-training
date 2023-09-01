@@ -1,6 +1,6 @@
 package bg.softuni.Mobilelele.models.entities;
 
-import bg.softuni.Mobilelele.models.enums.Category;
+import bg.softuni.Mobilelele.models.enums.CategoryEnum;
 import jakarta.persistence.*;
 
 
@@ -19,15 +19,20 @@ public class Model extends BaseEntity {
 
     @Column(nullable = false)
     private String name;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private CategoryEnum category;
+
     @Column(nullable = false)
     private String imageUrl;
+
     @Column(nullable = false)
     private Integer startYear;
+
     @Column
     private Integer endYear;
+
     @ManyToOne
     private Brand brand;
 
@@ -42,11 +47,11 @@ public class Model extends BaseEntity {
         this.name = name;
     }
 
-    public Category getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
     }
 

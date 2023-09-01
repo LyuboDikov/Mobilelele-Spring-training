@@ -1,6 +1,6 @@
 package bg.softuni.Mobilelele.models.enums;
 
-public enum Category {
+public enum CategoryEnum {
 
     CAR,
     BUS,

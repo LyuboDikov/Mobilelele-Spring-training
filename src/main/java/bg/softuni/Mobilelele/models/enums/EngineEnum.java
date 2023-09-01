@@ -1,6 +1,6 @@
 package bg.softuni.Mobilelele.models.enums;
 
-public enum Engine {
+public enum EngineEnum {
     GASOLINE,
     DIESEL,
     ELECTRIC,

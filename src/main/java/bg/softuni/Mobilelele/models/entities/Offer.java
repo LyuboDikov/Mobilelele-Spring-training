@@ -1,7 +1,7 @@
 package bg.softuni.Mobilelele.models.entities;
 
-import bg.softuni.Mobilelele.models.enums.Engine;
-import bg.softuni.Mobilelele.models.enums.Transmission;
+import bg.softuni.Mobilelele.models.enums.EngineEnum;
+import bg.softuni.Mobilelele.models.enums.TransmissionEnum;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -14,14 +14,14 @@ public class Offer extends BaseEntity {
     private String description;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Engine engine;
+    private EngineEnum engine;
     private String imageUrl;
     private int mileage;
     @Column(nullable = false, scale = 2, precision = 19)
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Transmission transmission;
+    private TransmissionEnum transmission;
     private int year;
     @ManyToOne
     private Model model;
@@ -31,11 +31,11 @@ public class Offer extends BaseEntity {
     public Offer() {
     }
 
-    public Engine getEngine() {
+    public EngineEnum getEngine() {
         return engine;
     }
 
-    public void setEngine(Engine engine) {
+    public void setEngine(EngineEnum engine) {
         this.engine = engine;
     }
 
@@ -63,11 +63,11 @@ public class Offer extends BaseEntity {
         this.price = price;
     }
 
-    public Transmission getTransmission() {
+    public TransmissionEnum getTransmission() {
         return transmission;
     }
 
-    public void setTransmission(Transmission transmission) {
+    public void setTransmission(TransmissionEnum transmission) {
         this.transmission = transmission;
     }
 

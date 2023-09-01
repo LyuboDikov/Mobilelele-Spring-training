@@ -12,6 +12,7 @@ public class Brand extends BaseEntity {
 
     @Column(nullable = false)
     private String name;
+
     @OneToMany(
             mappedBy = "brand",
             fetch = FetchType.EAGER,
