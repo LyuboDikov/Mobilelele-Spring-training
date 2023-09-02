@@ -35,8 +35,8 @@ public class UserServiceImpl implements UserService {
             return false;
         }
 
-        var rawPassword = userLoginDto.getPassword();
-        var encodedPassword =  userOptional.get().getPassword();
+        String rawPassword = userLoginDto.getPassword();
+        String encodedPassword =  userOptional.get().getPassword();
 
 
         boolean success = passwordEncoder.matches(rawPassword, encodedPassword);
