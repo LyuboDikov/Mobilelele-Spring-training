@@ -1,6 +1,7 @@
 package bg.softuni.Mobilelele.services;
 
 import bg.softuni.Mobilelele.models.dtos.UserLoginDto;
+import bg.softuni.Mobilelele.models.dtos.UserRegisterDto;
 import bg.softuni.Mobilelele.models.entities.User;
 import bg.softuni.Mobilelele.repositories.UserRepository;
 import bg.softuni.Mobilelele.users.CurrentUser;
@@ -23,6 +24,22 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.currentUser = currentUser;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public void registerAndLogin(UserRegisterDto userRegisterDto) {
+
+        User newUser = new User();
+
+        newUser.setActive(true);
+        newUser.setEmail(userRegisterDto.getEmail());
+        newUser.setFirstName(userRegisterDto.getFirstName());
+        newUser.setLastName(userRegisterDto.getLastName());
+        newUser.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
+
+        newUser = userRepository.save(newUser);
+
+        login(newUser);
     }
 
 
@@ -58,4 +75,6 @@ public class UserServiceImpl implements UserService {
     public void logout() {
         currentUser.clear();
     }
+
+
 }
