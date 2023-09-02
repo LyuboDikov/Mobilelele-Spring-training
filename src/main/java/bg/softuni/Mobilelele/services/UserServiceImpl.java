@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
     public void registerAndLogin(UserRegisterDto userRegisterDto) {
 
         User newUser = new User();
-
         newUser.setActive(true);
         newUser.setEmail(userRegisterDto.getEmail());
         newUser.setFirstName(userRegisterDto.getFirstName());
@@ -55,9 +54,7 @@ public class UserServiceImpl implements UserService {
         String rawPassword = userLoginDto.getPassword();
         String encodedPassword =  userOptional.get().getPassword();
 
-
         boolean success = passwordEncoder.matches(rawPassword, encodedPassword);
-
         if (success) {
             login(userOptional.get());
         } else {
