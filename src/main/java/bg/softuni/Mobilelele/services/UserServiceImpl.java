@@ -6,6 +6,7 @@ import bg.softuni.Mobilelele.repositories.UserRepository;
 import bg.softuni.Mobilelele.users.CurrentUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,10 +17,12 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final CurrentUser currentUser;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, CurrentUser currentUser) {
+    public UserServiceImpl(UserRepository userRepository, CurrentUser currentUser, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.currentUser = currentUser;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -32,7 +35,11 @@ public class UserServiceImpl implements UserService {
             return false;
         }
 
-        boolean success = userOptional.get().getPassword().equals(userLoginDto.getPassword());
+        var rawPassword = userLoginDto.getPassword();
+        var encodedPassword =  userOptional.get().getPassword();
+
+
+        boolean success = passwordEncoder.matches(rawPassword, encodedPassword);
 
         if (success) {
             login(userOptional.get());

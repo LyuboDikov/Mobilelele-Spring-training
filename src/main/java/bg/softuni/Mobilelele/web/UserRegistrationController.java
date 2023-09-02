@@ -14,7 +14,7 @@ public class UserRegistrationController {
     }
 
 
-    @PostMapping
+    @PostMapping("/users/register")
     public String register(UserRegisterDto userRegisterDto) {
 
         return "redirect:/";
