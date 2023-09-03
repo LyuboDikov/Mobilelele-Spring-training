@@ -15,7 +15,6 @@ public class UserRegisterDto {
     public UserRegisterDto() {
     }
 
-
     @Email
     public String getEmail() {
         return email;
