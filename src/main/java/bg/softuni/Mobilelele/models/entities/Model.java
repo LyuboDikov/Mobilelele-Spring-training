@@ -8,37 +8,17 @@ import jakarta.persistence.*;
 @Entity
 public class Model extends BaseEntity {
 
-    //•	name – a model name.
-    //•	category – an enumeration (Car, Buss, Truck, Motorcycle)
-    //•	imageUrl – the url of image with size between 8 and 512 characters.
-    //•	startYear – a number.
-    //•	endYear – a number.
-    //•	created – a date and time.
-    //•	modified – a date and time.
-    //•	brand – a model brand.
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private CategoryEnum category;
-
-    @Column(nullable = false)
     private String imageUrl;
-
-    @Column(nullable = false)
     private Integer startYear;
-
-    @Column
     private Integer endYear;
-
-    @ManyToOne
     private Brand brand;
 
     public Model() {
     }
 
+    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -47,6 +27,8 @@ public class Model extends BaseEntity {
         this.name = name;
     }
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     public CategoryEnum getCategory() {
         return category;
     }
@@ -55,6 +37,7 @@ public class Model extends BaseEntity {
         this.category = category;
     }
 
+    @Column(nullable = false)
     public String getImageUrl() {
         return imageUrl;
     }
@@ -63,6 +46,7 @@ public class Model extends BaseEntity {
         this.imageUrl = imageUrl;
     }
 
+    @Column(nullable = false)
     public Integer getStartYear() {
         return startYear;
     }
@@ -71,6 +55,7 @@ public class Model extends BaseEntity {
         this.startYear = startYear;
     }
 
+    @Column
     public Integer getEndYear() {
         return endYear;
     }
@@ -79,6 +64,7 @@ public class Model extends BaseEntity {
         this.endYear = endYear;
     }
 
+    @ManyToOne
     public Brand getBrand() {
         return brand;
     }

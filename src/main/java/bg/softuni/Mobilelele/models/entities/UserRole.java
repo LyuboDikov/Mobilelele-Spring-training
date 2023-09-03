@@ -7,14 +7,14 @@ import jakarta.persistence.*;
 @Table(name = "user_roles")
 public class UserRole {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private UserRoleEnum userRole;
 
+    public UserRole() {
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -23,6 +23,8 @@ public class UserRole {
         this.id = id;
     }
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     public UserRoleEnum getUserRole() {
         return userRole;
     }

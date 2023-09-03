@@ -9,36 +9,18 @@ import java.util.List;
 @Table(name = "users")
 public class User extends BaseEntity {
 
-    //•	id – uuid or number.
-    //•	username –  username of the user.
-    //•	password – password of the user.
-    //•	firstName –  first name of the user.
-    //•	lastName –  last name of the user.
-    //•	isActive – true OR false.
-    //•	role –  user's role (User or Admin).
-    //•	imageUrl – an url of user's picture.
-
-    @Column(nullable = false)
     private String email;
-
-    @Column
     private String password;
-
-    @Column
     private String firstName;
-
-    @Column
     private String lastName;
-
-    @Column
     private boolean isActive;
-
-    @Column
     private String imageUrl;
-
-    @ManyToMany(fetch = FetchType.EAGER)
     private List<UserRole> userRoles = new ArrayList<>();
 
+    public User() {
+    }
+
+    @Column(nullable = false)
     public String getEmail() {
         return email;
     }
@@ -47,6 +29,7 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
+    @Column
     public String getPassword() {
         return password;
     }
@@ -55,6 +38,7 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
+    @Column
     public String getFirstName() {
         return firstName;
     }
@@ -63,6 +47,7 @@ public class User extends BaseEntity {
         this.firstName = firstName;
     }
 
+    @Column
     public String getLastName() {
         return lastName;
     }
@@ -71,6 +56,7 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
+    @Column
     public boolean isActive() {
         return isActive;
     }
@@ -79,6 +65,7 @@ public class User extends BaseEntity {
         isActive = active;
     }
 
+    @Column
     public String getImageUrl() {
         return imageUrl;
     }
@@ -87,6 +74,7 @@ public class User extends BaseEntity {
         this.imageUrl = imageUrl;
     }
 
+    @ManyToMany(fetch = FetchType.EAGER)
     public List<UserRole> getUserRoles() {
         return userRoles;
     }

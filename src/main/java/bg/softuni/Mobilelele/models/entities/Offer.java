@@ -10,35 +10,22 @@ import java.math.BigDecimal;
 @Table(name = "offers")
 public class Offer extends BaseEntity {
 
-    @Column(columnDefinition = "TEXT")
+
     private String description;
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private EngineEnum engine;
-
     private String imageUrl;
-
     private int mileage;
-
-    @Column(nullable = false, scale = 2, precision = 19)
     private BigDecimal price;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private TransmissionEnum transmission;
-
     private int year;
-
-    @ManyToOne
     private Model model;
-
-    @ManyToOne
     private User seller;
 
     public Offer() {
     }
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     public EngineEnum getEngine() {
         return engine;
     }
@@ -63,6 +50,7 @@ public class Offer extends BaseEntity {
         this.mileage = mileage;
     }
 
+    @Column(nullable = false, scale = 2, precision = 19)
     public BigDecimal getPrice() {
         return price;
     }
@@ -71,6 +59,8 @@ public class Offer extends BaseEntity {
         this.price = price;
     }
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     public TransmissionEnum getTransmission() {
         return transmission;
     }
@@ -87,6 +77,7 @@ public class Offer extends BaseEntity {
         this.year = year;
     }
 
+    @ManyToOne
     public Model getModel() {
         return model;
     }
@@ -95,6 +86,7 @@ public class Offer extends BaseEntity {
         this.model = model;
     }
 
+    @ManyToOne
     public User getSeller() {
         return seller;
     }
@@ -103,6 +95,7 @@ public class Offer extends BaseEntity {
         this.seller = seller;
     }
 
+    @Column(columnDefinition = "TEXT")
     public String getDescription() {
         return description;
     }

@@ -10,19 +10,13 @@ import java.util.List;
 @Entity
 public class Brand extends BaseEntity {
 
-    @Column(nullable = false)
     private String name;
-
-    @OneToMany(
-            mappedBy = "brand",
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL
-    )
     private List<Model> models = new ArrayList<>();
 
     public Brand() {
     }
 
+    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -31,6 +25,11 @@ public class Brand extends BaseEntity {
         this.name = name;
     }
 
+    @OneToMany(
+            mappedBy = "brand",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL
+    )
     public List<Model> getModels() {
         return models;
     }
