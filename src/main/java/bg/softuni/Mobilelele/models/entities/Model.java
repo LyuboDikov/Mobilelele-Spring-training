@@ -37,16 +37,15 @@ public class Model extends BaseEntity {
         this.category = category;
     }
 
-    @Column(nullable = false)
+    @Column(name = "image_url", nullable = false)
     public String getImageUrl() {
         return imageUrl;
     }
-
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-    @Column(nullable = false)
+    @Column(name = "start_year", nullable = false)
     public Integer getStartYear() {
         return startYear;
     }
@@ -55,7 +54,7 @@ public class Model extends BaseEntity {
         this.startYear = startYear;
     }
 
-    @Column
+    @Column(name = "end_year")
     public Integer getEndYear() {
         return endYear;
     }

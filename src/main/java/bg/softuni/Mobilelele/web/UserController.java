@@ -3,6 +3,7 @@ package bg.softuni.Mobilelele.web;
 import bg.softuni.Mobilelele.models.dtos.UserLoginDto;
 import bg.softuni.Mobilelele.models.dtos.UserRegisterDto;
 import bg.softuni.Mobilelele.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +43,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public String register(UserRegisterDto userRegisterDto) {
+    public String register(@Valid UserRegisterDto userRegisterDto) {
 
         userService.registerAndLogin(userRegisterDto);
 

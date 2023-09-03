@@ -38,7 +38,7 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    @Column
+    @Column(name = "first_name")
     public String getFirstName() {
         return firstName;
     }
@@ -47,7 +47,7 @@ public class User extends BaseEntity {
         this.firstName = firstName;
     }
 
-    @Column
+    @Column(name = "last_name")
     public String getLastName() {
         return lastName;
     }
@@ -56,7 +56,7 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-    @Column
+    @Column(name = "is_active")
     public boolean isActive() {
         return isActive;
     }
@@ -65,7 +65,7 @@ public class User extends BaseEntity {
         isActive = active;
     }
 
-    @Column
+    @Column(name = "image_url")
     public String getImageUrl() {
         return imageUrl;
     }

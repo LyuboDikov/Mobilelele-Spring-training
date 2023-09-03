@@ -34,6 +34,7 @@ public class Offer extends BaseEntity {
         this.engine = engine;
     }
 
+    @Column(name = "image_url")
     public String getImageUrl() {
         return imageUrl;
     }
@@ -42,6 +43,7 @@ public class Offer extends BaseEntity {
         this.imageUrl = imageUrl;
     }
 
+    @Column
     public int getMileage() {
         return mileage;
     }
@@ -69,6 +71,7 @@ public class Offer extends BaseEntity {
         this.transmission = transmission;
     }
 
+    @Column
     public int getYear() {
         return year;
     }
