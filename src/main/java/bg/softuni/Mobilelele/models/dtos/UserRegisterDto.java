@@ -53,6 +53,7 @@ public class UserRegisterDto {
         this.password = password;
     }
 
+    @NotEmpty
     public String getConfirmPassword() {
         return confirmPassword;
     }
