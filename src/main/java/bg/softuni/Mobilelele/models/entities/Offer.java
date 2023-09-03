@@ -12,19 +12,27 @@ public class Offer extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String description;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EngineEnum engine;
+
     private String imageUrl;
+
     private int mileage;
+
     @Column(nullable = false, scale = 2, precision = 19)
     private BigDecimal price;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TransmissionEnum transmission;
+
     private int year;
+
     @ManyToOne
     private Model model;
+
     @ManyToOne
     private User seller;
 
