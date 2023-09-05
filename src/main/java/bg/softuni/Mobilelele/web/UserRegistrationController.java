@@ -43,10 +43,9 @@ public class UserRegistrationController {
                            RedirectAttributes redirectAttributes) {
 
         if (!userRegisterDto.getPassword().equals(userRegisterDto.getConfirmPassword())) {
-
             bindingResult.rejectValue("confirmPassword",
-                                    "password.mismatch",
-                                "Passwords do not match!");
+                    "password.mismatch",
+                    "Passwords do not match");
         }
 
          // If there are any errors in the user input
@@ -57,7 +56,7 @@ public class UserRegistrationController {
                     .addFlashAttribute("userModel", userRegisterDto)
                     .addFlashAttribute("org.springframework.validation.BindingResult.userModel", bindingResult);
 
-            return "redirect:/users/register";
+            return "redirect:register";
         }
 
         //If there were no errors upon validation, we register and login the user.
