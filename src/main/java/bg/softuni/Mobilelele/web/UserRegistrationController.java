@@ -53,10 +53,9 @@ public class UserRegistrationController {
         // we are simply showing the fields,
         // where the error occurred, while redirecting them to the same page.
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute(
-                    "userModel", userRegisterDto);
-            redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.userModel", bindingResult);
+            redirectAttributes
+                    .addFlashAttribute("userModel", userRegisterDto)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.userModel", bindingResult);
 
             return "redirect:/users/register";
         }
