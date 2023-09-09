@@ -28,8 +28,8 @@ public class UserRegistrationController {
     // We can add another model attribute with different name
     // and different object, so we can use it too
     @ModelAttribute("userModel")
-    public void initUserModel(Model model) {
-        model.addAttribute("userModel", new UserRegisterDto());
+    public UserRegisterDto initUserModel() {
+        return new UserRegisterDto();
     }
 
     @GetMapping("/register")
