@@ -7,6 +7,6 @@ public interface UserService {
 
     boolean login(UserLoginDto userLoginDto);
     void logout();
-    boolean registerAndLogin(UserRegisterDto userRegisterDto);
+    void registerAndLogin(UserRegisterDto userRegisterDto);
 
 }

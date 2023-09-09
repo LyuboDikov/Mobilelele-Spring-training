@@ -42,12 +42,6 @@ public class UserRegistrationController {
                            BindingResult bindingResult,
                            RedirectAttributes redirectAttributes) {
 
-        if (!userRegisterDto.getPassword().equals(userRegisterDto.getConfirmPassword())) {
-            bindingResult.rejectValue("confirmPassword",
-                    "password.mismatch",
-                    "Passwords do not match");
-        }
-
          // If there are any errors in the user input
         // we are simply showing the fields,
         // where the error occurred, while redirecting them to the same page.

@@ -33,19 +33,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean registerAndLogin(UserRegisterDto userRegisterDto) {
+    public void registerAndLogin(UserRegisterDto userRegisterDto) {
 
         User newUser = userMapper.userDtoToUser(userRegisterDto);
         newUser.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
 
-        try {
-            userRepository.save(newUser);
-            login(newUser);
-            return true;
-        } catch (DataIntegrityViolationException e) {
-            return false;
-        }
 
+        userRepository.save(newUser);
+        login(newUser);
     }
 
 
@@ -59,7 +54,7 @@ public class UserServiceImpl implements UserService {
         }
 
         String rawPassword = userLoginDto.getPassword();
-        String encodedPassword =  userOptional.get().getPassword();
+        String encodedPassword = userOptional.get().getPassword();
 
         boolean success = passwordEncoder.matches(rawPassword, encodedPassword);
         if (success) {
