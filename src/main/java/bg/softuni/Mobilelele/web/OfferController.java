@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -21,18 +22,18 @@ public class OfferController {
         this.offerService = offerService;
     }
 
+    @ModelAttribute("addOfferModel")
+    public AddOfferDto initAddOfferModel() {
+        return new AddOfferDto();
+    }
+
     @GetMapping("/all")
     public String allOffers() {
         return "offers";
     }
 
     @GetMapping("/add")
-    public String addOffer(Model model) {
-
-        if (!model.containsAttribute("addOfferModel")) {
-            model.addAttribute("addOfferModel", new AddOfferDto());
-        }
-
+    public String addOffer() {
         return "offer-add";
     }
 
