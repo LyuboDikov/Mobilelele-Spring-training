@@ -8,7 +8,6 @@ import bg.softuni.Mobilelele.repositories.UserRepository;
 import bg.softuni.Mobilelele.users.CurrentUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
