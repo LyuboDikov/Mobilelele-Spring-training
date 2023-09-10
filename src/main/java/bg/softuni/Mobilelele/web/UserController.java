@@ -1,11 +1,8 @@
 package bg.softuni.Mobilelele.web;
 
 import bg.softuni.Mobilelele.models.dtos.UserLoginDto;
-import bg.softuni.Mobilelele.models.dtos.UserRegisterDto;
 import bg.softuni.Mobilelele.services.UserService;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

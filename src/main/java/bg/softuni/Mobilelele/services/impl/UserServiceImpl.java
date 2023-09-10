@@ -1,10 +1,11 @@
-package bg.softuni.Mobilelele.services;
+package bg.softuni.Mobilelele.services.impl;
 
 import bg.softuni.Mobilelele.models.dtos.UserLoginDto;
 import bg.softuni.Mobilelele.models.dtos.UserRegisterDto;
 import bg.softuni.Mobilelele.models.entities.User;
 import bg.softuni.Mobilelele.models.mapper.UserMapper;
 import bg.softuni.Mobilelele.repositories.UserRepository;
+import bg.softuni.Mobilelele.services.UserService;
 import bg.softuni.Mobilelele.users.CurrentUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
