@@ -38,7 +38,6 @@ public class UserServiceImpl implements UserService {
         User newUser = userMapper.userDtoToUser(userRegisterDto);
         newUser.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
 
-
         userRepository.save(newUser);
         login(newUser);
     }
@@ -69,6 +68,7 @@ public class UserServiceImpl implements UserService {
     private void login(User user) {
         currentUser.setLoggedIn(true);
         currentUser.setName(user.getFirstName() + " " + user.getLastName());
+        currentUser.setEmail(user.getEmail());
     }
 
     public void logout() {
